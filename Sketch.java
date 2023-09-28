@@ -1,36 +1,35 @@
 import processing.core.PApplet;
 
 public class Sketch extends PApplet {
-	
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
+  
   public void settings() {
-	// put your size call here
-    size(400, 400);
+    size(600, 600);
   }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
   public void setup() {
     background(210, 255, 173);
   }
 
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
   public void draw() {
-	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
+    // Draw the stem
+    stroke(0, 255, 0); // Green color for the stem
+    float stemWeight = width / 30; // Proportional stroke weight
+    strokeWeight(stemWeight);
+    float stemX = width / 2;
+    float stemTopY = height / 2 + (width / 12 * 3); // Adjusted based on petal size
+    float stemBottomY = height / 2 + (width / 12 * 7); // Adjusted based on petal size
+    line(stemX, stemTopY, stemX, stemBottomY); // Proportional stem line
 
-    stroke(255);
-    line(50, 125, 70, 50);  
+    // Draw petals
+    fill(255, 0, 0); // Red color for petals
+    noStroke(); // No outline for petals
+    ellipse(width / 4, height / 4, width / 2, height / 2); // Petal 1
+    ellipse(width * 0.75f, height / 4.0f, width / 2.0f, height / 2.0f); // Petal 2 (using floats)
+    ellipse(width / 4.0f, height * 0.75f, width / 2.0f, height / 2.0f); // Petal 3 (using floats)
+    ellipse(width * 0.75f, height * 0.75f, width / 2.0f, height / 2.0f); // Petal 4 (using floats)
+
+    // Draw the center of the flower
+    fill(255, 255, 0); // Yellow color for the center
+    ellipse(width / 2, height / 2, width / 2, height / 2); // Proportional center of the flower
   }
-  
-  // define other methods down here.
 }
